@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  САЙТ СТРАХОВОГО АГЕНТА — 3 файли: index.html, style.css, script.js
+  Розміщуйте на хостингу всі три разом (в одній папці).
+
+  Що потрібно налаштувати перед публікацією:
+
+  1. ТЕЛЕГРАМ-БОТ і, за бажання, GOOGLE ТАБЛИЦЯ — у файлі script.js,
+     блок "КОНФІГУРАЦІЯ" на самому початку файлу.
+     Детальна інструкція — у файлі SETUP.md.
+
+  2. ТЕКСТ: замініть "Ім'я Прізвище", номер телефону, місто та
+     посилання на соцмережі — шукайте по коментарях "ЗАМІНІТЬ".
+
+  3. ФОТО (необов'язково): у секції #hero-visual можна замінити
+     SVG-ілюстрацію на <img> з вашим фото.
+  ============================================================
+-->
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ім'я Прізвище — страховий агент</title>
+<meta name="description" content="Особистий страховий агент: ОСЦПВ, КАСКО, страхування майна та виїзду за кордон. Порівнюю пропозиції страхових компаній і підбираю поліс під ваш випадок.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 27 7v9c0 8-6 12-11 13-5-1-11-5-11-13V7z' fill='%231B4332'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo">
+      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M16 3 27 7v9c0 8-6 12-11 13-5-1-11-5-11-13V7z" fill="#1B4332"/>
+        <path d="M11 16.5 14.5 20 21 12" stroke="#FAFAF7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <!-- ЗАМІНІТЬ: ім'я та прізвище -->
+      Ім'я Прізвище
+    </a>
+    <nav class="nav-links" aria-label="Основна навігація">
+      <a href="#services">Послуги</a>
+      <a href="#process">Як це працює</a>
+      <a href="#why">Про мене</a>
+      <a href="#form">Контакти</a>
+    </nav>
+    <div class="nav-cta">
+      <!-- ЗАМІНІТЬ: номер телефону -->
+      <a class="phone-link" href="tel:+380000000000">+380 00 000 00 00</a>
+      <a class="btn" href="#form">Залишити заявку</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ---------- HERO ---------- -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Захист, який не підводить у важливу мить</h1>
+        <p class="hero-sub">
+          Особистий страховий агент. Порівнюю пропозиції кількох страхових компаній
+          і підбираю поліс, що відповідає вашій ситуації, — а не продаю перший-ліпший варіант.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#form">Залишити заявку</a>
+          <a class="btn btn-ghost" href="tel:+380000000000">Зателефонувати</a>
+        </div>
+      </div>
+      <div class="hero-visual" id="hero-visual">
+        <!-- Абстрактна ілюстрація "щит" — за бажання замініть на власне фото (<img>) -->
+        <svg viewBox="0 0 320 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ілюстрація щита як символу захисту">
+          <circle cx="160" cy="190" r="168" stroke="#A6824F" stroke-opacity="0.35" stroke-dasharray="3 9"/>
+          <path d="M160 20 280 60 280 178C280 258 220 328 160 358 100 328 40 258 40 178L40 60Z" stroke="#1B4332" stroke-width="2"/>
+          <path d="M160 52 253 84 253 176C253 240 210 296 160 320 110 296 67 240 67 176L67 84Z" stroke="#A6824F" stroke-width="1.5" stroke-opacity="0.7"/>
+          <path class="check-draw" d="M112 190 148 226 214 142" stroke="#1B4332" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- SERVICES ---------- -->
+  <section id="services">
+    <div class="wrap">
+      <div class="eyebrow-free-heading reveal">
+        <h2>Види страхування</h2>
+        <p class="section-lede">
+          Працюю з кількома страховими компаніями одночасно, тому підбираю умови під ваш випадок,
+          а не пропоную єдиний варіант.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service reveal" style="transition-delay:0s">
+          <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="6" y="16" width="28" height="12" rx="3" stroke="#1B4332" stroke-width="1.6"/>
+            <path d="M9 16 13 8h14l4 8" stroke="#1B4332" stroke-width="1.6" stroke-linejoin="round"/>
+            <circle cx="13" cy="28" r="2.4" stroke="#A6824F" stroke-width="1.4"/>
+            <circle cx="27" cy="28" r="2.4" stroke="#A6824F" stroke-width="1.4"/>
+          </svg>
+          <h3>ОСЦПВ</h3>
+          <p>Обов'язкове страхування цивільно-правової відповідальності власників транспортних засобів — поліс, без якого не можна легально керувати автомобілем в Україні.</p>
+        </div>
+        <div class="service reveal" style="transition-delay:.08s">
+          <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 22 12 12h16l4 10" stroke="#1B4332" stroke-width="1.6" stroke-linejoin="round"/>
+            <rect x="6" y="22" width="28" height="9" rx="2.5" stroke="#1B4332" stroke-width="1.6"/>
+            <path d="M15 27h10" stroke="#A6824F" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <h3>КАСКО</h3>
+          <p>Добровільне страхування автомобіля від пошкоджень, викрадення та інших ризиків. Підбираю покриття, що відповідає реальній вартості ремонту.</p>
+        </div>
+        <div class="service reveal" style="transition-delay:.16s">
+          <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M7 19 20 8l13 11" stroke="#1B4332" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11 17v14h18V17" stroke="#1B4332" stroke-width="1.6"/>
+            <rect x="17" y="24" width="6" height="7" stroke="#A6824F" stroke-width="1.4"/>
+          </svg>
+          <h3>Страхування майна</h3>
+          <p>Захист квартири, будинку чи комерційного приміщення від пожежі, затоплення, крадіжки та інших ризиків.</p>
+        </div>
+        <div class="service reveal" style="transition-delay:.24s">
+          <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M5 24 33 12l-9 22-4-9-9-1z" stroke="#1B4332" stroke-width="1.6" stroke-linejoin="round"/>
+            <circle cx="27" cy="10" r="3.2" stroke="#A6824F" stroke-width="1.4"/>
+          </svg>
+          <h3>Виїзд за кордон / медичне</h3>
+          <p>Страхування для поїздок за кордон — від туристичного полісу на тиждень до варіантів для тривалого перебування чи роботи.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- PROCESS ---------- -->
+  <section id="process" class="process">
+    <div class="wrap">
+      <div class="eyebrow-free-heading reveal">
+        <h2>Як це працює</h2>
+        <p class="section-lede">Від заявки до поліса — чотири кроки, без зайвої бюрократії з вашого боку.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Залишаєте заявку</h3>
+          <p>Коротка форма на сайті або дзвінок — займає хвилину.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Я зв'язуюся з вами</h3>
+          <p>Уточнюю деталі та розумію, що саме потрібно застрахувати.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Підбираю варіанти</h3>
+          <p>Порівнюю пропозиції кількох страхових компаній.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3>Оформлюємо поліс</h3>
+          <p>Ви отримуєте документи, я залишаюся на зв'язку на весь строк дії.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- WHY ---------- -->
+  <section id="why">
+    <div class="wrap why-grid">
+      <p class="why-quote reveal">«Моє завдання — щоб ви розуміли, за що платите, і отримали виплату, коли вона дійсно знадобиться.»</p>
+      <ul class="why-list">
+        <li class="reveal" style="transition-delay:0s">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#1B4332" stroke-width="1.4"/><path d="M8 12.5 10.8 15 16 9" stroke="#1B4332" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p><strong>Порівнюю кількох страховиків</strong>Не прив'язаний до однієї компанії — пропоную варіант, який реально підходить саме вам.</p>
+        </li>
+        <li class="reveal" style="transition-delay:.1s">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#1B4332" stroke-width="1.4"/><path d="M8 12.5 10.8 15 16 9" stroke="#1B4332" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p><strong>Пояснюю умови простою мовою</strong>Що саме покриває поліс, а що — ні, до підписання, а не після.</p>
+        </li>
+        <li class="reveal" style="transition-delay:.2s">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#1B4332" stroke-width="1.4"/><path d="M8 12.5 10.8 15 16 9" stroke="#1B4332" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p><strong>На зв'язку й після оформлення</strong>Підкажу, що робити у разі страхового випадку, і допоможу з документами.</p>
+        </li>
+        <!-- За бажання додайте власний пункт: стаж роботи, кількість клієнтів, партнерські страхові компанії тощо -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- ---------- FORM ---------- -->
+  <section id="form" class="form-section">
+    <div class="wrap form-grid">
+      <div class="reveal">
+        <h2>Залишити заявку</h2>
+        <p class="section-lede">Заповніть форму — я зателефоную вам, щоб уточнити деталі й підібрати варіанти.</p>
+        <ul class="form-context-list">
+          <li>Відповідаю протягом робочого дня</li>
+          <li>Консультація нічого не коштує</li>
+          <li>Персональні дані нікому не передаються</li>
+        </ul>
+      </div>
+
+      <form class="lead-form reveal" id="lead-form" novalidate style="transition-delay:.1s">
+        <div id="form-fields">
+          <div class="field">
+            <label for="f-name">Ім'я</label>
+            <input type="text" id="f-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-phone">Телефон</label>
+              <input type="tel" id="f-phone" name="phone" placeholder="+380 XX XXX XX XX" autocomplete="tel" required>
+            </div>
+            <div class="field">
+              <label for="f-type">Вид страхування</label>
+              <select id="f-type" name="type" required>
+                <option value="" disabled selected>Оберіть</option>
+                <option>ОСЦПВ</option>
+                <option>КАСКО</option>
+                <option>Страхування майна</option>
+                <option>Виїзд за кордон / медичне</option>
+                <option>Інше</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-comment">Коментар (необов'язково)</label>
+            <textarea id="f-comment" name="comment" placeholder="Марка авто, адреса об'єкта, дата поїздки тощо"></textarea>
+          </div>
+
+          <!-- Пастка для спам-ботів: поле приховане від людей -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="f-company">Company</label>
+            <input type="text" id="f-company" name="company" tabindex="-1" autocomplete="off">
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" id="f-consent" required>
+            <span>Погоджуюсь на обробку персональних даних для зв'язку щодо страхування.</span>
+          </label>
+
+          <button type="submit" class="btn btn-block" id="submit-btn">Надіслати заявку</button>
+          <div class="form-msg" id="form-msg" role="status"></div>
+        </div>
+
+        <div class="success-panel" id="success-panel">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#1B4332" stroke-width="1.4"/><path class="check-draw-success" d="M8 12.5 10.8 15 16 9" stroke="#1B4332" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Заявку надіслано</h3>
+          <p>Я зателефоную вам найближчим часом.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <a href="#" class="logo">
+        <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M16 3 27 7v9c0 8-6 12-11 13-5-1-11-5-11-13V7z" fill="#1B4332"/>
+          <path d="M11 16.5 14.5 20 21 12" stroke="#FAFAF7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Ім'я Прізвище
+      </a>
+      <div class="footer-links">
+        <!-- ЗАМІНІТЬ: місто, телефон, месенджери -->
+        <a href="tel:+380000000000">+380 00 000 00 00</a>
+        <a href="#">Ваше місто</a>
+        <a href="https://t.me/username" target="_blank" rel="noopener">Telegram</a>
+      </div>
+    </div>
+    <p class="footer-fine">© 2026 Ім'я Прізвище. Усі права захищено. Персональні дані не передаються третім особам.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
