@@ -186,14 +186,22 @@ header.scrolled .nav{ padding:12px 0; }
 }
 @media (prefers-reduced-motion:reduce){
   .hero h1,.hero-sub,.hero-actions,.hero-visual{ animation:none; opacity:1; transform:none; }
-  .check-draw, .check-draw-success{ animation:none !important; stroke-dashoffset:0 !important; }
+  .check-draw, .check-draw-success, .shield-draw-outer, .shield-draw-inner{ animation:none !important; stroke-dashoffset:0 !important; }
+  .orbit-ring{ animation:none !important; transform:none !important; }
   .hero::before{ display:none; }
 }
-.check-draw{
-  stroke-dasharray:120;
-  stroke-dashoffset:120;
-  animation:draw 1s ease-out 0.9s forwards;
+.shield-draw-outer, .shield-draw-inner, .check-draw{
+  stroke-dasharray:1;
+  stroke-dashoffset:1;
 }
+.shield-draw-outer{ animation:draw 1s ease-out .15s forwards; }
+.shield-draw-inner{ animation:draw .9s ease-out .5s forwards; }
+.check-draw{ animation:draw .55s ease-out 1.3s forwards; }
+.orbit-ring{
+  transform-origin:160px 190px;
+  animation:spin 50s linear infinite;
+}
+@keyframes spin{ from{ transform:rotate(0deg); } to{ transform:rotate(360deg); } }
 .check-draw-success{
   stroke-dasharray:120;
   stroke-dashoffset:120;
