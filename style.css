@@ -207,6 +207,7 @@ header.scrolled{
   .hero h1,.hero-sub,.hero-actions,.hero-visual{ animation:none; opacity:1; transform:none; }
   .check-draw, .check-draw-success, .shield-draw-outer, .shield-draw-inner{ animation:none !important; stroke-dashoffset:0 !important; }
   .orbit-ring{ animation:none !important; transform:none !important; }
+  .rivet{ animation:none !important; opacity:1 !important; transform:scale(1) !important; }
   .hero::before{ display:none; }
 }
 .shield-draw-outer, .shield-draw-inner, .check-draw{
@@ -217,10 +218,18 @@ header.scrolled{
 .shield-draw-inner{ animation:draw .9s ease-out .5s forwards; }
 .check-draw{ animation:draw .55s ease-out 1.3s forwards; }
 .orbit-ring{
-  transform-origin:160px 192px;
+  transform-origin:160px 183px;
   animation:spin 50s linear infinite;
 }
 @keyframes spin{ from{ transform:rotate(0deg); } to{ transform:rotate(360deg); } }
+.rivet{
+  transform-box:fill-box;
+  transform-origin:center;
+  opacity:0;
+  transform:scale(0);
+  animation:rivet-pop .3s ease-out forwards;
+}
+@keyframes rivet-pop{ to{ opacity:1; transform:scale(1); } }
 .check-draw-success{
   stroke-dasharray:120;
   stroke-dashoffset:120;
