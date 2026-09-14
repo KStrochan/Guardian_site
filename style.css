@@ -138,9 +138,16 @@ header.scrolled .nav{ padding:12px 0; }
 
 /* ---------- Hero ---------- */
 .hero{
-  padding:88px 0 96px;
+  padding:64px 0;
+  min-height:min(82vh, 740px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
   position:relative;
   overflow:hidden;
+}
+@media (max-width:900px){
+  .hero{ min-height:auto; padding:56px 0 48px; }
 }
 .hero::before{
   content:'';
