@@ -10,8 +10,9 @@
      блок "КОНФІГУРАЦІЯ" на самому початку файлу.
      Детальна інструкція — у файлі SETUP.md.
 
-  2. ТЕКСТ: замініть "Ім'я Прізвище", номер телефону, місто та
-     посилання на соцмережі — шукайте по коментарях "ЗАМІНІТЬ".
+  2. ТЕКСТ: ім'я, телефон і місто вже підставлені (Строчан Константин,
+     +380 93 728 60 75, Стрий). Лишилось замінити посилання на Telegram
+     у футері (зараз placeholder https://t.me/username).
 
   3. ФОТО (необов'язково): у секції #hero-visual можна замінити
      SVG-ілюстрацію на <img> з вашим фото.
@@ -31,6 +32,7 @@
 </head>
 <body>
 
+<div class="scroll-progress" id="scroll-progress"></div>
 <header>
   <div class="wrap nav">
     <a href="#" class="logo">
@@ -38,7 +40,6 @@
         <path d="M16 3 27 7v9c0 8-6 12-11 13-5-1-11-5-11-13V7z" fill="#1B4332"/>
         <path d="M11 16.5 14.5 20 21 12" stroke="#FAFAF7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <!-- ЗАМІНІТЬ: ім'я та прізвище -->
       Строчан Константин
     </a>
     <nav class="nav-links" aria-label="Основна навігація">
@@ -48,11 +49,20 @@
       <a href="#form">Контакти</a>
     </nav>
     <div class="nav-cta">
-      <!-- ЗАМІНІТЬ: номер телефону -->
       <a class="phone-link" href="tel:+380937286075">+380 93 728 60 75</a>
       <a class="btn" href="#form">Залишити заявку</a>
+      <button class="menu-btn" id="menu-btn" aria-label="Відкрити меню" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Мобільна навігація">
+    <a href="#services">Послуги</a>
+    <a href="#process">Як це працює</a>
+    <a href="#why">Про мене</a>
+    <a href="#form">Контакти</a>
+    <a class="phone-link" href="tel:+380937286075">+380 93 728 60 75</a>
+  </nav>
 </header>
 
 <main>
@@ -262,9 +272,9 @@
         Строчан Константин
       </a>
       <div class="footer-links">
-        <!-- ЗАМІНІТЬ: місто, телефон, месенджери -->
+        <!-- ЗАМІНІТЬ: посилання на Telegram (username) -->
         <a href="tel:+380937286075">+380 93 728 60 75</a>
-        <a href="#">Ваше місто</a>
+        <a href="#">Стрий</a>
         <a href="https://t.me/username" target="_blank" rel="noopener">Telegram</a>
       </div>
     </div>

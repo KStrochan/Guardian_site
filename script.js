@@ -127,6 +127,44 @@
   // ---------- Ефекти ----------
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Індикатор прогресу скролу
+  var progressBar = document.getElementById('scroll-progress');
+  if(progressBar){
+    var updateProgress = function(){
+      var scrollTop = window.scrollY;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = pct + '%';
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive:true });
+    window.addEventListener('resize', updateProgress);
+  }
+
+  // Мобільне меню: гамбургер <-> хрестик, панель з посиланнями
+  var menuBtn = document.getElementById('menu-btn');
+  var mobileNav = document.getElementById('mobile-nav');
+  if(menuBtn && mobileNav){
+    var closeMenu = function(){
+      mobileNav.classList.remove('open');
+      menuBtn.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+    menuBtn.addEventListener('click', function(){
+      var isOpen = mobileNav.classList.toggle('open');
+      menuBtn.classList.toggle('open', isOpen);
+      menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', closeMenu);
+    });
+    window.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ closeMenu(); }
+    });
+  }
+
   // Тінь і компактніший хедер під час скролу
   var headerEl = document.querySelector('header');
   if(headerEl){
