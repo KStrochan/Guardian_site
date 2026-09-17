@@ -149,13 +149,11 @@
       mobileNav.classList.remove('open');
       menuBtn.classList.remove('open');
       menuBtn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
     };
     menuBtn.addEventListener('click', function(){
       var isOpen = mobileNav.classList.toggle('open');
       menuBtn.classList.toggle('open', isOpen);
       menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
     mobileNav.querySelectorAll('a').forEach(function(link){
       link.addEventListener('click', closeMenu);
