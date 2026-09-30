@@ -3,8 +3,8 @@
 
   // ===================== КОНФІГУРАЦІЯ =====================
   // Telegram: токен від @BotFather і chat_id. Інструкція — SETUP.md.
-  var TELEGRAM_BOT_TOKEN = "ВАШ_ТОКЕН_ТУТ";
-  var TELEGRAM_CHAT_ID   = "ВАШ_CHAT_ID_ТУТ";
+  var TELEGRAM_BOT_TOKEN = "8923261003:AAFyEZix7e2plHJheObNk2svaV6XTDzt2-w";
+  var TELEGRAM_CHAT_ID   = "540650628";
 
   // Google Sheets (необов'язково): URL Apps Script Web App, що закінчується на /exec.
   // Якщо залишити плейсхолдер — архів у таблицю просто не викликається,
