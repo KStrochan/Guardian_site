@@ -11,7 +11,7 @@
   // сайт продовжує працювати лише через Telegram. Інструкція — SETUP.md.
   var GOOGLE_SHEETS_URL = "ВАШ_APPS_SCRIPT_URL_ТУТ";
 
-  var FALLBACK_PHONE = "+380 00 000 00 00"; // показується, якщо надсилання не вдалось
+  var FALLBACK_PHONE = "+380 93 728 60 75"; // показується, якщо надсилання не вдалось
   // ==========================================================
 
   var form = document.getElementById('lead-form');
