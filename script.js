@@ -2,9 +2,9 @@
   "use strict";
 
   // ===================== КОНФІГУРАЦІЯ =====================
-  // Telegram: токен від @BotFather і chat_id. Інструкція — SETUP.md.
-  var TELEGRAM_BOT_TOKEN = "8923261003:AAFyEZix7e2plHJheObNk2svaV6XTDzt2-w";
-  var TELEGRAM_CHAT_ID   = "540650628";
+  // Telegram: URL вашого Cloudflare Worker (проксі), який ховає токен бота.
+  // Інструкція з налаштування — розділ 3 у SETUP.md.
+  var TELEGRAM_PROXY_URL = "ВАШ_WORKER_URL_ТУТ";
 
   // Google Sheets (необов'язково): URL Apps Script Web App, що закінчується на /exec.
   // Якщо залишити плейсхолдер — архів у таблицю просто не викликається,
@@ -21,13 +21,6 @@
   var msgBox = document.getElementById('form-msg');
   var submitBtn = document.getElementById('submit-btn');
 
-  function escapeHtml(str){
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-  }
-
   function showMsg(text, type){
     msgBox.textContent = text;
     msgBox.className = 'form-msg show ' + type;
@@ -37,8 +30,8 @@
     return !v || v.indexOf('ВАШ_') === 0;
   }
 
-  if(isPlaceholder(TELEGRAM_BOT_TOKEN) || isPlaceholder(TELEGRAM_CHAT_ID)){
-    console.warn('Сайт страхового агента: вкажіть TELEGRAM_BOT_TOKEN і TELEGRAM_CHAT_ID у script.js перед публікацією (див. SETUP.md).');
+  if(isPlaceholder(TELEGRAM_PROXY_URL)){
+    console.warn('Сайт страхового агента: вкажіть TELEGRAM_PROXY_URL у script.js перед публікацією (див. SETUP.md).');
   }
 
   // ---------- Архів заявок у Google Таблиці (необов'язково, паралельно з Telegram) ----------
@@ -84,7 +77,7 @@
         return;
       }
 
-      if(isPlaceholder(TELEGRAM_BOT_TOKEN) || isPlaceholder(TELEGRAM_CHAT_ID)){
+      if(isPlaceholder(TELEGRAM_PROXY_URL)){
         showMsg('Форму ще не підключено до Telegram. Зателефонуйте: ' + FALLBACK_PHONE, 'err');
         return;
       }
@@ -92,22 +85,14 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Надсилаємо…';
 
-      var text =
-        '🆕 Нова заявка з сайту\n\n' +
-        '👤 Ім’я: ' + escapeHtml(name) + '\n' +
-        '📞 Телефон: ' + escapeHtml(phone) + '\n' +
-        '🛡️ Вид страхування: ' + escapeHtml(type) + '\n' +
-        '💬 Коментар: ' + (comment ? escapeHtml(comment) : '—');
-
-      var url = 'https://api.telegram.org/bot' + TELEGRAM_BOT_TOKEN + '/sendMessage';
-
-      fetch(url, {
+      fetch(TELEGRAM_PROXY_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: text })
+        body: JSON.stringify({ name: name, phone: phone, type: type, comment: comment })
       })
-      .then(function(res){
-        if(!res.ok) throw new Error('Telegram API error');
+      .then(function(res){ return res.json().catch(function(){ return { ok:false }; }); })
+      .then(function(result){
+        if(!result || !result.ok) throw new Error('Proxy error');
 
         // Архів у Google Таблиці — паралельно, не блокує успішний стан форми
         logToSheet({ name: name, phone: phone, type: type, comment: comment });
