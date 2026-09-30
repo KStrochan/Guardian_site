@@ -230,4 +230,57 @@
       });
     }
   }
+
+  // FAQ-акордеон (одне питання відкрите за раз)
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var btn = item.querySelector('.faq-q');
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      var willOpen = !item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(openItem){
+        openItem.classList.remove('open');
+        var openBtn = openItem.querySelector('.faq-q');
+        if(openBtn){ openBtn.setAttribute('aria-expanded', 'false'); }
+      });
+      if(willOpen){
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Підсвічування активного пункту меню під час скролу
+  var navLinkEls = document.querySelectorAll('.nav-links a[href^="#"]');
+  var trackedSections = [];
+  navLinkEls.forEach(function(link){
+    var id = link.getAttribute('href').slice(1);
+    var section = document.getElementById(id);
+    if(section){ trackedSections.push({ link: link, section: section }); }
+  });
+  if(trackedSections.length && 'IntersectionObserver' in window){
+    var navObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var match = trackedSections.find(function(t){ return t.section === entry.target; });
+        if(!match) return;
+        if(entry.isIntersecting){
+          navLinkEls.forEach(function(l){ l.classList.remove('active'); });
+          match.link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    trackedSections.forEach(function(t){ navObserver.observe(t.section); });
+  }
+
+  // Кнопка "нагору"
+  var backToTop = document.getElementById('back-to-top');
+  if(backToTop){
+    var toggleBackToTop = function(){
+      backToTop.classList.toggle('show', window.scrollY > 600);
+    };
+    toggleBackToTop();
+    window.addEventListener('scroll', toggleBackToTop, { passive:true });
+    backToTop.addEventListener('click', function(){
+      window.scrollTo({ top:0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  }
 })();

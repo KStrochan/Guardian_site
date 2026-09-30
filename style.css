@@ -218,6 +218,8 @@ header.scrolled{
     transition:transform .25s ease;
   }
   .nav-links a:hover::after{ transform:scaleX(1); }
+  .nav-links a.active{ color:var(--pine); }
+  .nav-links a.active::after{ transform:scaleX(1); background:var(--pine); }
 }
 
 /* ---------- Hero ---------- */
@@ -428,6 +430,31 @@ header.scrolled{
   .why-list li{ padding:20px 0; }
 }
 
+/* ---------- FAQ ---------- */
+.faq-section{ background:var(--bg-alt); }
+.faq-list{ margin-top:36px; border-top:1px solid var(--line); }
+.faq-item{ border-bottom:1px solid var(--line); }
+.faq-q{
+  width:100%;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  background:none; border:none; cursor:pointer;
+  padding:18px 2px;
+  font-family:var(--sans); font-weight:600; font-size:1rem; color:var(--ink);
+  text-align:left;
+}
+.faq-q span{ flex:1; }
+.faq-icon{ width:20px; height:20px; flex:none; transition:transform .3s ease; }
+.faq-item.open .faq-icon{ transform:rotate(180deg); }
+.faq-a{
+  max-height:0; overflow:hidden;
+  transition:max-height .35s ease;
+}
+.faq-item.open .faq-a{ max-height:220px; }
+.faq-a p{ padding:0 2px 20px; color:var(--ink-muted); font-size:0.95rem; line-height:1.6; max-width:640px; }
+@media (prefers-reduced-motion:reduce){
+  .faq-a{ transition:max-height .01s linear; }
+}
+
 /* ---------- Form ---------- */
 .form-section{ background:var(--pine); color:var(--white); }
 .form-grid{
@@ -520,4 +547,27 @@ footer{ padding:40px 0; border-top:1px solid var(--line); }
   footer{ padding:48px 0; }
   .footer-links{ gap:22px; font-size:0.9rem; }
   .footer-fine{ margin-top:28px; font-size:0.82rem; }
+}
+
+/* ---------- Back to top ---------- */
+.back-to-top{
+  position:fixed; right:18px; bottom:18px;
+  width:44px; height:44px;
+  border-radius:50%;
+  background:var(--pine);
+  border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 8px 20px -8px rgba(18,48,35,0.5);
+  opacity:0; visibility:hidden; transform:translateY(8px);
+  transition:opacity .25s ease, transform .25s ease, visibility 0s .25s, background .2s ease;
+  z-index:35;
+}
+.back-to-top.show{
+  opacity:1; visibility:visible; transform:translateY(0);
+  transition:opacity .25s ease, transform .25s ease, visibility 0s;
+}
+.back-to-top:hover{ background:var(--pine-deep); }
+.back-to-top svg{ width:20px; height:20px; }
+@media (prefers-reduced-motion:reduce){
+  .back-to-top{ transition:opacity .01s linear, visibility 0s; }
 }
