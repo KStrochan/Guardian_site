@@ -4,7 +4,7 @@
   // ===================== КОНФІГУРАЦІЯ =====================
   // Telegram: URL вашого Cloudflare Worker (проксі), який ховає токен бота.
   // Інструкція з налаштування — розділ 3 у SETUP.md.
-  var TELEGRAM_PROXY_URL = "https://guardian-site.kostyastrochan.workers.dev";
+  var TELEGRAM_PROXY_URL = "https://guardian-telegram-proxy.kostyastrochan.workers.dev";
 
   // Google Sheets (необов'язково): URL Apps Script Web App, що закінчується на /exec.
   // Якщо залишити плейсхолдер — архів у таблицю просто не викликається,
